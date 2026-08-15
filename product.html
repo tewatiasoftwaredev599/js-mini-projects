@@ -3,53 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Search</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background: #0f172a; color: #fff; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 40px 20px; }
-        .container { width: 100%; max-width: 600px; text-align: center; }
-        h2 { margin-bottom: 20px; color: #38bdf8; }
-        input { width: 100%; padding: 12px 20px; border-radius: 8px; border: 1px solid #334155; background: #1e293b; color: #fff; font-size: 1rem; margin-bottom: 20px; }
-        input:focus { outline: none; border-color: #38bdf8; }
-        ul { list-style: none; background: #1e293b; border-radius: 8px; border: 1px solid #334155; overflow: hidden; text-align: left; }
-        li { padding: 15px 20px; border-bottom: 1px solid #334155; color: #f8fafc; }
-        li:last-child { border-bottom: none; }
-        .back-link { margin-top: 25px; display: inline-block; color: #38bdf8; text-decoration: none; }
-        .back-link:hover { text-decoration: underline; }
-    </style>
+    <title>Document</title>
+    <link rel="stylesheet" href="product.css">
 </head>
 <body>
-
     <div class="container">
-        <h2>🛍️ Product Search</h2>
-        <input type="text" id="searchBox" placeholder="Search products..." onkeyup="filterProducts()">
-        <ul id="productList">
-            <li>Apple iPhone 15</li>
-            <li>Samsung Galaxy S24</li>
-            <li>OnePlus 12</li>
-            <li>MacBook Pro M3</li>
-            <li>Sony Headphones</li>
-            <li>Dell XPS Laptop</li>
-        </ul>
+        <h1>Product</h1>
+        <input type="text" id="search" placeholder="Type to search....">
+        <p id="msg" class="msg"></p>
+        <table>
+            <thead>
+                <tr>
+                   <th>Image</th>
+                   <th>Product Name</th>
+                   <th>Price</th>
+                   <th>Category</th>
+                </tr>
+                <tbody id="tableBody"></tbody>
+            </thead>
+        </table>
     </div>
-
-    <a href="index.html" class="back-link">⬅ Back to Home</a>
-
-    <script>
-        function filterProducts() {
-            let input = document.getElementById('searchBox').value.toLowerCase();
-            let items = document.getElementById('productList').getElementsByTagName('li');
-            
-            for (let i = 0; i < items.length; i++) {
-                let text = items[i].textContent.toLowerCase();
-                if (text.includes(input)) {
-                    items[i].style.display = "";
-                } else {
-                    items[i].style.display = "none";
-                }
-            }
-        }
-    </script>
-
+    <script src="product.js"></script>
 </body>
 </html>

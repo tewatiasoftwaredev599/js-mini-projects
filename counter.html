@@ -4,102 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Counter App</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        body {
-            background: #0f172a;
-            color: #fff;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-        .container {
-            background: #1e293b;
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-            text-align: center;
-            border: 1px solid #334155;
-        }
-        h1 {
-            font-size: 5rem;
-            margin-bottom: 30px;
-            color: #38bdf8;
-        }
-        .buttons {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-        }
-        button {
-            padding: 12px 24px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: 0.2s;
-            color: #fff;
-        }
-        .decrement { background: #ef4444; }
-        .reset { background: #64748b; }
-        .increment { background: #22c55e; }
-        button:hover {
-            opacity: 0.9;
-            transform: translateY(-2px);
-        }
-        .back-link {
-            margin-top: 25px;
-            display: inline-block;
-            color: #38bdf8;
-            text-decoration: none;
-        }
-        .back-link:hover { text-decoration: underline; }
-    </style>
+    <link rel="stylesheet" href="counter.css">
 </head>
 <body>
-
-    <div class="container">
-        <h1 id="count">0</h1>
+    <div class="counter">
+        <h1 id="value">0</h1>
         <div class="buttons">
-            <button class="decrement" onclick="decrease()">- Decrease</button>
-            <button class="reset" onclick="resetCount()">Reset</button>
-            <button class="increment" onclick="increase()">+ Increase</button>
+            <button id="decrement">-</button>
+            <button id="reset">reset</button>
+            <button id="increment">+</button>
         </div>
     </div>
-
-    <a href="index.html" class="back-link">⬅ Back to Home</a>
-
-    <script>
-        let count = 0;
-        const countDisplay = document.getElementById("count");
-
-        function updateDisplay() {
-            countDisplay.textContent = count;
-        }
-
-        function increase() {
-            count++;
-            updateDisplay();
-        }
-
-        function decrease() {
-            count--;
-            updateDisplay();
-        }
-
-        function resetCount() {
-            count = 0;
-            updateDisplay();
-        }
-    </script>
-
+    <script src="counter.js"></script>
 </body>
 </html>
