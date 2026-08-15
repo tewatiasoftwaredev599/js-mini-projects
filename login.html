@@ -3,20 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login Form</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background: #0f172a; color: #fff; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .form-container { background: #1e293b; padding: 40px; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); width: 100%; max-width: 400px; border: 1px solid #334155; }
+        h2 { margin-bottom: 25px; color: #38bdf8; text-align: center; }
+        .input-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; color: #94a3b8; }
+        input { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #334155; background: #0f172a; color: #fff; font-size: 1rem; }
+        input:focus { outline: none; border-color: #38bdf8; }
+        button { width: 100%; padding: 12px; background: #38bdf8; color: #0f172a; font-weight: bold; border: none; border-radius: 8px; cursor: pointer; font-size: 1rem; transition: 0.2s; }
+        button:hover { background: #0ea5e9; }
+        .back-link { margin-top: 25px; display: inline-block; color: #38bdf8; text-decoration: none; }
+        .back-link:hover { text-decoration: underline; }
+    </style>
 </head>
-<link rel="stylesheet" href="login.css">
 <body>
-    <div class="card">
-        <form id="loginForm" novalidate>
-            <h1>Login</h1>
-            <input type="text" id="email" placeholder="Enter Email">
-            <div id="e-msg" class="msg"></div>
-              <input type="password" id="password" placeholder="Password">
-            <div id="p-msg" class="msg"></div>
-           <button>login</button>
+
+    <div class="form-container">
+        <h2>🔐 Login Form</h2>
+        <form onsubmit="handleLogin(event)">
+            <div class="input-group">
+                <label>Email</label>
+                <input type="email" id="email" required placeholder="Enter your email">
+            </div>
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" id="password" required placeholder="Enter your password">
+            </div>
+            <button type="submit">Login</button>
         </form>
     </div>
-    <script src="login.js"></script>
+
+    <a href="index.html" class="back-link">⬅ Back to Home</a>
+
+    <script>
+        function handleLogin(event) {
+            event.preventDefault();
+            const email = document.getElementById("email").value;
+            alert("Login Successful for: " + email);
+        }
+    </script>
+
 </body>
 </html>

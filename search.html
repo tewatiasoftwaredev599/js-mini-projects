@@ -3,16 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Search Bar</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background: #0f172a; color: #fff; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 40px 20px; }
+        .container { width: 100%; max-width: 600px; text-align: center; }
+        h2 { margin-bottom: 20px; color: #38bdf8; }
+        input { width: 100%; padding: 12px 20px; border-radius: 8px; border: 1px solid #334155; background: #1e293b; color: #fff; font-size: 1rem; margin-bottom: 20px; }
+        input:focus { outline: none; border-color: #38bdf8; }
+        .card-box { background: #1e293b; padding: 15px 20px; border-radius: 8px; border: 1px solid #334155; margin-bottom: 10px; text-align: left; }
+        .back-link { margin-top: 25px; display: inline-block; color: #38bdf8; text-decoration: none; }
+        .back-link:hover { text-decoration: underline; }
+    </style>
 </head>
-<link rel="stylesheet" href="search.css">
 <body>
+
     <div class="container">
-        <h1>search</h1>
-        <input type="text" id="search" placeholder="Type to search....">
-        <p id="msg" class="msg"></p>
-        <ul id="list"></ul>
+        <h2>🔍 Live Search Filter</h2>
+        <input type="text" id="searchInput" placeholder="Type to search items..." onkeyup="searchFunction()">
+        <div id="contentArea">
+            <div class="card-box">HTML & CSS Basics</div>
+            <div class="card-box">JavaScript DOM Manipulation</div>
+            <div class="card-box">React JS Framework</div>
+            <div class="card-box">Node.js Backend Development</div>
+            <div class="card-box">Git and GitHub Version Control</div>
+        </div>
     </div>
-    <script src="search.js"></script>
+
+    <a href="index.html" class="back-link">⬅ Back to Home</a>
+
+    <script>
+        function searchFunction() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let cards = document.getElementsByClassName('card-box');
+            
+            for (let i = 0; i < cards.length; i++) {
+                let text = cards[i].textContent.toLowerCase();
+                if (text.includes(input)) {
+                    cards[i].style.display = "";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+
 </body>
 </html>
